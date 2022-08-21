@@ -30,12 +30,12 @@ void power_set_int(vector<int>v){
 }
 
 int code(){
-    //code here 
+    //code here
 
     string str= "abc";
     vector<int>v={1,2,3};
     power_set_string(str);
-    power_set_int(v);
+    //power_set_int(v);
     return 0;
 }
 

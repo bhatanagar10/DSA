@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int peak_mountain_array(vector<int>arr,int k){
+int search_in_rotated_sorted_array(vector<int>arr,int k){
     int s = 0;
     int e = arr.size() - 1;
     int mid=0,flag=0;
@@ -16,11 +16,17 @@ int peak_mountain_array(vector<int>arr,int k){
             flag = 1;
             return mid;
         }
-        else if( k > arr[mid] &&  k<=arr[e]){
-            s = mid+1;
-        } 
+        else if(arr[mid] >= arr[s]){
+            if(k < arr[mid] && k>= arr[s])
+                e= mid-1;
+            else
+                s= mid+1;
+        }
         else{
-            e = mid-1;
+            if(k >arr[mid] && k<= arr[e])
+                s= mid+1;
+            else    
+                e=mid-1;
         }
     }
 
@@ -31,11 +37,9 @@ int peak_mountain_array(vector<int>arr,int k){
 
 int code(){
     //code here {
-    vector<int>arr{7,9,1,2,3};
-    /* for(int i=0 ; i < arr.size() ; i++){
-        cout<<arr[i];
-    } */
-    cout<<arr[peak_mountain_array(arr,7)];
+    vector<int>arr{};
+
+    cout<<search_in_rotated_sorted_array(arr,5);
     return 0;
 }
 
