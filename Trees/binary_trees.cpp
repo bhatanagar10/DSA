@@ -584,6 +584,32 @@ class binary_tree{
         }
     }
 
+    // find maximum sum of the adjacent nodes
+    void maxSumofAdjacentNodesFunc(tree *node , pair<int,int>&sum , bool check){
+        if(!node){
+            return;
+        }
+
+        if(check){
+            sum.first+=node->data;
+        }
+        else{
+            sum.second+=node->data;
+        }
+
+        maxSumofAdjacentNodesFunc(node->left, sum , !check);
+        maxSumofAdjacentNodesFunc(node->right, sum , !check);
+
+
+    }
+
+    void maxSumofAdjacentNodes(struct tree *node ){  
+        pair<int,int>sum=make_pair(0,0);      
+        maxSumofAdjacentNodesFunc(node , sum ,true);
+        cout<<sum.first<<" "<<sum.second; 
+
+    }
+
 };
 
 int code(){
@@ -650,8 +676,8 @@ int code(){
     // cout<<obj.sumOfnodesoflongestpath(root).second;
     // cout<<obj.leastCommonancestor(root, 8 ,9 )->data;
     int count=2;
-    cout<<obj.kthAncestor(root, 8 ,10 , count).second->data;
-    
+    // cout<<obj.kthAncestor(root, 8 ,10 , count).second->data;
+    obj.maxSumofAdjacentNodes(root);
 
 
     return 0;
