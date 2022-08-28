@@ -1,7 +1,5 @@
 /*
 Morris Traversal:- 
-first set current to root;
-
 
 */
 #include <bits/stdc++.h>  
