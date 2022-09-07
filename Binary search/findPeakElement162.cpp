@@ -20,39 +20,63 @@
 
 using namespace std;
 
-int solution(vector<int>& nums , int start , int end){
-
-    if(s==e){
-        return s;
+void solution(vector<int>& nums , vector<int>&vec , int start , int end){
+        int s= start  , e= end;
+    if(s>=e){
+        return;
+    }
+    if(nums.size() == 2){
+        vec.push_back(nums[0] > nums[1] ? 0 : 1);
+        return;
     }
     int mid = (s+e)/2;
 
-    if(nums[mid] > nums[mid+1]){
-        solution(nums , start , mid);
+    while(s<e){
+        if(nums[mid] > nums[mid+1]){
+            e= mid;
+        }
+        else{
+            s=mid+1;
+        }
+        mid=(s+e)/2;
     }
-    else{
-        solution(nums ,mid+1 , end);
-    }    
-}
     
-    int findPeakElement(vector<int>& nums) {
+        
+    if( mid-1 >=0  && mid+1 <= nums.size()-1){
+        if(nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]){
+            vec.push_back(mid);
+        }
+    }
+        
+    else if(mid == nums.size()-1)
+            vec.push_back(mid); 
+    else if(mid == 0)    
+            vec.push_back(mid);
+    
+    solution(nums , vec, start , mid-1);
+    solution(nums , vec , mid+1 , end);
+    }
+    
+    void findPeakElement(vector<int>& nums) {
         vector<int>vec;
         int s=0, e= nums.size()-1;
         solution(nums ,vec ,s , e );
-        if(vec.size() != 0){
+
+        for(auto i:vec){
+            cout<<nums[i]<<" ";
+        }
+        /* if(vec.size() != 0){
             return vec[0];
         }
         else{
             return 0;
-        }
+        } */
     }
 
 int code(){
-    //code here
-    // cout<<findPeakElement(vec);
-    vector<int>vec={1,2};
-    cout<<findPeakElement(vec);
-    
+    //code here 
+    vector<int>nums = {1,2,1,3,5,6,4};
+    findPeakElement(nums);
     return 0;
 }
 

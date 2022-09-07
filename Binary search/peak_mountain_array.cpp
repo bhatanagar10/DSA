@@ -24,7 +24,7 @@ int peak_mountain_array(vector<int>arr){
 
 int code(){
     //code here {
-    vector<int>arr{1,2,3,1};
+    vector<int>arr{3,5,3,2,0};
     /* for(int i=0 ; i < arr.size() ; i++){
         cout<<arr[i];
     } */

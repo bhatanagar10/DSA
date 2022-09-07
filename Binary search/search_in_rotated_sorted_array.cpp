@@ -37,7 +37,7 @@ int search_in_rotated_sorted_array(vector<int>arr,int k){
 
 int code(){
     //code here {
-    vector<int>arr{};
+    vector<int>arr{5,6,7,1,2,3,4};
 
     cout<<search_in_rotated_sorted_array(arr,5);
     return 0;
