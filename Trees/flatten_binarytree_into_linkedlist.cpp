@@ -38,7 +38,7 @@ void display_binary_tree(TreeNode *Node){
       display_binary_tree(Node->left);
       cout<<Node->val<<" ";
       display_binary_tree(Node->right);
-    }
+}
 
 void flatten(TreeNode* root){
     TreeNode *current = root,*pre=NULL;
