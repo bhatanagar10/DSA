@@ -125,68 +125,11 @@ TreeNode* searchBST(TreeNode* root, int val) {
             R->right = new TreeNode(val);
         }
         return head;
-    }
-
-    
-    /*
-pair<int,int> predecessorSuccessor(BinaryTreeNode<int>* root, int key)
-    {
-    // Write your code here.
-    int p =-1, s=-1;
-    if(!root)
-        return make_pair(p,s);
-    BinaryTreeNode<int>* head = root;
-    //first for predecessor and second for successor
-
-    while(head){
-        if(head->data == key){
-            if(head->left){
-                BinaryTreeNode<int>*T = head->left;
-                while(T->right){
-                    T= T->right;
-                }
-                p = T->data;
-            }
-            if(head->right){
-                BinaryTreeNode<int>*T = head->right;
-                while(T->left){
-                    T = T->left;
-                }
-                s = T->data;
-            }
-            return make_pair(p,s);
-        }
-        else if(key < head->data){
-            s = head->data;
-            head = head->left;
-        }
-        else{
-            p = head->data;
-            head = head->right;
-        }
-    }
-    return make_pair(p,s);
 }
-
-
-TreeNode *findPredecessor(TreeNode *node){
-  TreeNode *t= node;
-  node= node->left;
-  while(node->right != NULL && node->right !=  t){
-      node = node->right;
-    }
-    return node;
-}
-
-
-
-*/
-
 
 
 int main(){
   vector<int>vec={1,INT_MIN,2,INT_MIN,3,INT_MIN,4};
   TreeNode* root = convertTotree(vec);
-  BST_balancing(root);
 //   level_order_traversal(root);
 }

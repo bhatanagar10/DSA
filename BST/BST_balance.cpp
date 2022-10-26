@@ -89,7 +89,8 @@ void BST_balancing(TreeNode* root){
 }
 
 
-//normal method
+//-------------------------------------------------normal method--------------------------------------------------------------
+
 void store_inorder(TreeNode* root , vector<int>&vec){
     if(!root)
        return;
