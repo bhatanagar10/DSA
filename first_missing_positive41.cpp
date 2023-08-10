@@ -24,13 +24,21 @@
     int t = vec[i];
     vec[i] = vec[j];
     vec[j] = t;
-  }
-
+    }
+  
   int segregateNumbers(vector<int>&v){
+    int index =0;
 
-    int index = 0;
-    for(int i=0 ; i < v.size(); i++){
-      if(v[i] > 0){
+    //get first non negative or zero 
+    for(int i =0  ; i < v.size() ; i++){
+      if(v[i] <= 0){
+        index =i;
+        break;
+      }
+    }
+
+    for(int i = index +1 ; i < v.size() ; i++){
+      if(v[i] > 0)  {
         swap(v , index , i);
         index++;
       }
@@ -38,33 +46,6 @@
 
     return index;
   }
-
-  // int segregateNumbers(vector<int>&v){
-  //   int low = 0 , high = v.size()-1,count=0;
-  //   while(low < high){
-  //       if(v[low] <= 0 && v[high] > 0){
-  //           // swap
-  //           swap(v , low , high);
-  //           count++;
-  //           low++;
-  //           high--;
-  //       }
-  //       if(v[low] > 0){
-  //         count++;
-  //         low++;
-  //       }
-  //       if(v[high] <= 0){
-  //         high--;
-  //       }
-  //   }
-  //   cout<<count;
-  //   if(low == high){
-  //     return low+1;
-  //   }
-  //   else{
-  //       return low;
-  //     }
-  // }
 
   int firstMissingPositive(vector<int>v){
 
@@ -90,7 +71,7 @@
 
   int code(){
     //code here
-    vector<int>vec={-1,-2};
+    vector<int>vec={6,7,8,9,10};
     cout<<firstMissingPositive(vec);
     return 0;
   }
