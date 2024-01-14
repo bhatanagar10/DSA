@@ -147,6 +147,13 @@ int display_reverse(struct str *current){
     }
 
 
+    //base condition
+    if(!current){
+        return;
+    }
+
+    display_reverse(current->address);
+    cout<<current->data<<" ";
 
 }
 

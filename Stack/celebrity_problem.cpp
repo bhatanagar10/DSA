@@ -6,8 +6,6 @@ using namespace std;
 
 bool MATRIX[N][N] = {{0 ,1, 1, 0} ,{0 ,0 ,0 ,1} ,{1 ,1 ,0 ,1} ,{1 ,1 ,1 ,0}};
 
-
-
 bool knows(int A, int B)
 {
     return MATRIX[A][B];
@@ -34,12 +32,11 @@ int findCelebrity(int n)
         }
     }
     else if(knows(id,n)){
-            return n;
-            
+        return n;          
     }
     else{
-            return -1;
-        }
+        return -1;
+    }
 }
 
 int Celebrity(int n)

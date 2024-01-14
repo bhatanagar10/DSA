@@ -43,12 +43,7 @@ struct ListNode {
     }
     cout<<endl<<endl;
     }
-
-    ListNode* partition(ListNode* head, int x) {
-      
-    }
-
-/*
+    
     ListNode* partition(ListNode* head, int x) {
       ListNode *prev1= NULL , *prev2= NULL, *current1 = head , *current2 = NULL;
       if(!head){
@@ -111,7 +106,7 @@ struct ListNode {
 
       return head;
     }
-*/
+
     int code(){
       //code here
       ListNode *root = NULL;

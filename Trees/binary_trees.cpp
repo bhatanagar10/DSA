@@ -232,7 +232,7 @@ class binary_tree{
         cout<<node->data<<" ";
         if(node->left)
             print_left(node->left);
-        else    
+        else
             print_left(node->right);
     }
 
@@ -244,7 +244,7 @@ class binary_tree{
 
         if(node->right)
             print_right(node->right);
-        else    
+        else
             print_right(node->left);
         cout<<node->data<<" ";
     }
@@ -258,12 +258,12 @@ class binary_tree{
         print_leaf(node->left);
         print_leaf(node->right);
     }
-    
+
     void boundary_nodes(struct tree *root){
 
         print_left(root);
         print_leaf(root);
-        print_right(root->right); 
+        print_right(root->right);
     }
 
     void vertTrav(struct tree *node , int distance , map<int,map<int,vector<int>>>&m , int level){
@@ -335,13 +335,13 @@ class binary_tree{
         if(!node){
             return;
         }
-       
+
         if(m.find(distance) == m.end()){
              m[distance].first= node->data;
              m[distance].second = level;
         }
 
-        else if(m[distance].second <= level){            
+        else if(m[distance].second <= level){
              m[distance].first= node->data;
              m[distance].second = level;
         }
@@ -366,13 +366,13 @@ class binary_tree{
             return;
         }
         int size = q.size();
-        
+
         vec.push_back(q.front());
 
         while(size>0){
             if(q.front()->left)
                 q.push(q.front()->left);
-            if(q.front()->right)    
+            if(q.front()->right)
                 q.push(q.front()->right);
 
             q.pop();
@@ -430,7 +430,7 @@ class binary_tree{
         while(size>0){
             if(q.front()->left)
                 q.push(q.front()->left);
-            if(q.front()->right)    
+            if(q.front()->right)
                 q.push(q.front()->right);
 
             temp=q.front();
@@ -471,7 +471,7 @@ class binary_tree{
         map<int , vector<int>>m;
         diagonalTraverseFunc(node , 0 , m);
 
-      
+
         vector<int>vec;
         int k=0;
         while(1){
@@ -482,7 +482,7 @@ class binary_tree{
                 vec.push_back(i);
             }
             k--;
-            
+
         }
 
         for(auto i:vec){
@@ -505,7 +505,7 @@ class binary_tree{
         if(left.first == right.second){
             p.first= right.first+1;
             p.second = node->data + max(right.second,left.second);
-        } 
+        }
         else if(left.first > right.second){
             p.first= left.first+1;
             p.second = node->data + left.second;
@@ -525,7 +525,7 @@ class binary_tree{
         if(node->data == m || node->data == n)
             return node;
 
-        struct tree *left =leastCommonancestor(node->left , m , n);  
+        struct tree *left =leastCommonancestor(node->left , m , n);
         struct tree *right =leastCommonancestor(node->right , m , n);
 
         if(left && right){
@@ -535,7 +535,7 @@ class binary_tree{
             return NULL;
         }
         else if(left != NULL){
-            return left; 
+            return left;
         }
         else{
             return right;
@@ -543,19 +543,19 @@ class binary_tree{
     }
 
     pair<bool,tree *> kthAncestor(struct tree *node , int m ,int n , int &count){
-        
+
         pair<bool,tree *>p;
         if(!node){
             p=make_pair(false, nullptr);
             return p;
-        }            
+        }
 
         if(node->data == m || node->data == n){
             p=make_pair(false,node);
             return p;
-        }    
+        }
 
-        pair<bool,tree *>left =kthAncestor(node->left , m , n,count);  
+        pair<bool,tree *>left =kthAncestor(node->left , m , n,count);
         pair<bool,tree *>right =kthAncestor(node->right , m , n,count);
 
         if((left.first || right.first) && count>0){
@@ -576,7 +576,7 @@ class binary_tree{
         }
         else if(left.second != nullptr){
             p=make_pair(false,left.second);
-            return p; 
+            return p;
         }
         else{
             p=make_pair(false,right.second);
@@ -603,10 +603,10 @@ class binary_tree{
 
     }
 
-    void maxSumofAdjacentNodes(struct tree *node ){  
-        pair<int,int>sum=make_pair(0,0);      
+    void maxSumofAdjacentNodes(struct tree *node ){
+        pair<int,int>sum=make_pair(0,0);
         maxSumofAdjacentNodesFunc(node , sum ,true);
-        cout<<sum.first<<" "<<sum.second; 
+        cout<<sum.first<<" "<<sum.second;
 
     }
 
@@ -633,7 +633,7 @@ int code(){
     root->left->left=obj.insert_in_binary_tree('D');
     root->left->right=obj.insert_in_binary_tree('E');
     root->right->left= obj.insert_in_binary_tree('F');
-    root->right->right= obj.insert_in_binary_tree('G'); 
+    root->right->right= obj.insert_in_binary_tree('G');
     root->left->right->left=obj.insert_in_binary_tree('H');
     root->left->right->right=obj.insert_in_binary_tree('I');
 
@@ -656,7 +656,7 @@ int code(){
 
     else
         cout<<"Not SumTree"<<endl;
- 
+
 
     cout<<"Pre order:- "; obj.preOrdertraversal(root); cout<<endl;
     cout<<"Inorder:- "; obj.inOrdertraversal(root); cout<<endl;
@@ -664,7 +664,7 @@ int code(){
     cout<<"Level order traversal:-"; obj.level_order_traversal(root);cout<<endl;
     obj.zigZagtraversal(root);
  */
-    
+
     // obj.display_binary_tree(root);
     // obj.boundary_nodes(root);
     // obj.vertical_traversal(root);
