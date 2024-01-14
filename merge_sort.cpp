@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 void merge(vector<int>&vec , int s , int e , int mid){
     vector<int>v1,v2;
     for(int i = s ; i <= mid ; i++){
